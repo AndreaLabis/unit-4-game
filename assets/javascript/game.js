@@ -1,52 +1,60 @@
-   
-  // Here we establish the "targetNumber" (set to 50 in this example).
-  var targetNumber = 50;
 
-  // Here we set the "number-to-guess" header to match the "targetNumber".
-  // Eventually this will allow us to change the HTML to match the value in the JavaScript.
+// Here we establish the "targetNumber" (set to 50 in this example).
+
+$(document).ready(function() {
+
+
+
+  var targetNumber = [];
+
+
+
   $("#number-to-guess").text(targetNumber); //this will be between 19 - 120.
 
 
- // Here we created a counter, we'll be using this to track the user's total.
- var counter = 0;
- var incrementOptions = ["1","2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
- for (var i = 0; i < incrementOptions.length; i++) {
+  let wins = 0
+  let losses = 0;
+  let counter = 0;
+  let incrementOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+  for (var i = 0; i < incrementOptions.length; i++) {
+      console.log(incrementOptions[i]);
+  }  
 
- var crystalVal = incrementOptions[Math.round(Math.random())];
+    var crystalVal = incrementOptions[Math.round(Math.random() * incrementOptions.length)];
 
-$(".crystal-image").on("click", function() {
-   counter += crystalVal;
+    var imageCrystal = $("<img>");
+    imageCrystal.addClass("crystal-images");
+    imageCrystal.attr("src", url= "/assets/images/crystal1.png", "/assets/images/crystal2.png", "/assets/images/crystal3.png", "/assets/images/crystal4.png");
+    imageCrystal.attr("data-crystalvalue", numberOptions[i]);
+
+    var crystalValue = ($(this).attr("data-crystalvalue"));
+    crystalValue = parseInt(crystalValue);
+    counter += crystalValue;
+
+
+    $(".crystal-image").on("click", function () {
+      counter += crystalVal;
+      $("#crystals").append(imageCrystal);
+    
    
-   alert("Your new score is: " + counter);
+     alert('Your new score is: ' + counter);
 
     if (counter === targetNumber) {
 
-        alert("You win!");
+      alert("You win!");
     }
 
     else if (counter >= targetNumber) {
 
-        alert("You lose!");
-}
+      alert("You lose!");
 
+    }
+  }
 
-
-    
-
-
-   //add MathcrystalArrayVal.math[];
-
-
-
-
-  // Created "alerts" for clicking the crystals
-    alert("You clicked this crystal " + counter + " times!");
-    
-    alert("You win!");
   
 
 
 
-});    
 
-<div id="crystal buttons"
+  });
+}); 
