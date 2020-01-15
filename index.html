@@ -1,92 +1,101 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>CrystalsCollector</title>
+<html lang="en-us">
 
-  <style type="text/css">
-    .crystal-image {
-      width: 300px;
-      height: 300px;
-    }
-
-
-    <!--add button here for "Crystals Collector!" game name-->
-    <!--add 4 buttons here for each of the crystals to be clicked-->   
+  <head>
+    <title>CrystalsCollector</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel='stylesheet' href="style.css">
     
+  </head>
+
+  <body> 
     
-   </style>
+    <div class="container">
 
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card card-default">
+            <div class="card-header">
+               <h2><strong>Andrea's Crystals Collector Game!</strong></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
 
-</head>
-<body>
+      <!-- Game counters held here. cards are being used to hold various sections. -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-default">
+            <div class="card-body">
+              <p>You will be given a random number at the start of the game.</p>
+              <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+              <p>You win the game by matching  your total score to the random number, you lose the game if your total score goes above the random number.</p>
+              <p>The value of each crystal is hidden from you until you click on it.</p>
+              <p>Each time when the game starts, the game will change the values of each crystal and a new random number will be displayed as well.</p>
+            </div>
+          </div>  
+        </div>
+      </div>
+          <br>
 
-    <!-- Here we added a header which will hold the "number-to-guess" -->
-<h1>Number to Guess: <span id="number-to-guess"></span></h1>  
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card card-default">
+                <div class="card-body">
+                   <h2><strong>random number</strong></h2><br>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4"> 
+              <div class="card card-default">
+                <div class="card-body">
+                  <p>Wins: </p><span id="win-counter">0</span>
+                  <p>Losses: </p><span id="loss-counter">0</span>
+                </div>
+              </div>  
+            </div>
+          </div>
+          <br>
+          
+          <input type="image" src="/assets/images/crystal1.png" class="button">   
+          <input type="image" src="/assets/images/crystal2.png" class="button">  
+          <input type="image" src="/assets/images/crystal3.png" class="button">  
+          <input type="image" src="/assets/images/crystal4.png" class="button">  
+        
+          
+          <br>
+          <br>
 
-<div id="crystals">   
+          
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card card-default">
+                <div class="card-body">
+                  <p>Your total score so far: </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
 
-  <!-- Here we added in a single crystal image -->
-  <img class="crystal-image" src="http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg" alt="crystals">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="card card-default">
+                <div class="card-body">
+                   <h2><strong>Score-Number</strong></h2><br>
+                </div>
+              </div>
+            </div>
+          </div>  
 
-</div>
-
-<!-- Here we added a link to the jQuery library -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<!-- Below is where our JavaScript code will go -->
-<script type="text/javascript">
-
-    
-  // Here we establish the "targetNumber" (set to 50 in this example).
-  var targetNumber = 50;
-
-  // Here we set the "number-to-guess" header to match the "targetNumber".
-  // Eventually this will allow us to change the HTML to match the value in the JavaScript.
-  $("#number-to-guess").text(targetNumber); //this will be between 19 - 120.
-
-
- // Here we created a counter, we'll be using this to track the user's total.
- var counter = 0;
- var incrementOptions = ["1","2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
- var crystalVal = incrementOptions[Math.round(Math.random())];
-
-$(".crystal-image").on("click", function() {
-   counter += crystalVal;
    
-   alert("Your new score is: " + counter);
+ 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/game.js"></script>
+     </div>
 
-    if (counter === targetNumber) {
-
-        alert("You win!");
-    }
-
-    else if (counter >= targetNumber) {
-
-        alert("You lose!");
-}
-
-
-
-    
-
-
-   //add MathcrystalArrayVal.math[];
-
-
-
-
-  // Created "alerts" for clicking the crystals
-    alert("You clicked this crystal " + counter + " times!");
-    
-    alert("You win!");
-  
-
-
-
-});    
-
-<div id="crystal buttons"
-
-    </script>
 </body>
 </html>
