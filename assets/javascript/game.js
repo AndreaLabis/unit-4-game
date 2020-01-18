@@ -3,9 +3,8 @@
 
 $(document).ready(function() {
 
-
-
-  var targetNumber = [];
+  var targetNumber;
+  var Score = 0;
 
 
 
