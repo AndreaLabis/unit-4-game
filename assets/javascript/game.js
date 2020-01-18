@@ -2,14 +2,14 @@ $(function() {
   var targetNumber;
   var wins = 0;
   var losses = 0;
-  var userScore;
+  var userScore = 0;
 
   function reset() {
     for(var i = 0; i < crystals.length; i++) {
         crystals[i].setAttribute("score", Math.floor(Math.random() * 11 + 1))
     }
     targetNumber = Math.floor(Math.random() * 101 + 19);
-    userScore = 0;
+    
     $("#user-Score").text(userScore);
     $("#target-number").text(targetNumber);
   }
@@ -38,43 +38,17 @@ $(function() {
         reset();
         wins++;
         $("#wins").text(wins);
+        $("#user-score").text(userScore);
     }
     else if (userScore > targetNumber) {
         alert("You lose!");
         reset();
         losses++;
         $("#losses").text(losses);
+        $("#user-score").text(userScore);
     }
   }
 
   initialize();
-
-  $("#green").on("click", function () {
-  userScore += num1;
-  $("#user-score").text(userScore);
-  console.log(userScore);
-  logic();
-  })
-
-  $("#red").on("click", function () {
-  userScore += num2;
-  $("#user-score").text(userScore);
-  console.log(userScore);
-  logic();
-  })
-
-  $("#blue").on("click", function () {
-  userScore += num3;
-  $("#user-score").text(userScore);
-  console.log(userScore);
-  logic();
-  })
-
-  $("#orange").on("click", function () {
-  userScore += num4;
-  $("#user-score").text(userScore);
-  console.log(userScore);
-  logic();
-  })
 
 }); 
