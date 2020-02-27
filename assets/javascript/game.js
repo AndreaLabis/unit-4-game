@@ -1,54 +1,106 @@
-$(function() {
-  var targetNumber;
-  var wins = 0;
-  var losses = 0;
-  var userScore = 0;
+$(document).ready(function() {
 
-  function reset() {
-    for(var i = 0; i < crystals.length; i++) {
-        crystals[i].setAttribute("score", Math.floor(Math.random() * 11 + 1))
-    }
-    targetNumber = Math.floor(Math.random() * 101 + 19);
-    
-    $("#user-Score").text(userScore);
-    $("#target-number").text(targetNumber);
-  }
 
-  function initialize() {
-    crystals = document.getElementsByTagName("img")
-    for(var i = 0; i < crystals.length; i++) {
-        crystals[i].setAttribute("score", Math.floor(Math.random() * 11 + 1))
-        crystals[i].addEventListener("click", (args) => {
-            value = Math.round(args.target.getAttribute("score"))
-            userScore = userScore + value;
-            $("#user-Score").text(userScore);
-            console.log(userScore);
-            logic();
-        })
-    }
-    targetNumber = Math.floor(Math.random() * 101 + 19);
-    $("#target-number").text(targetNumber);
-    $("#wins").text(wins);
-    $("#losses").text(losses);
-    $("#user-score").text(userScore);
-  }
-  function logic() {
-    if (userScore === targetNumber) {
-        alert("You Win!");
-        reset();
-        wins++;
-        $("#wins").text(wins);
-        $("#user-score").text(userScore);
-    }
-    else if (userScore > targetNumber) {
-        alert("You lose!");
-        reset();
-        losses++;
-        $("#losses").text(losses);
-        $("#user-score").text(userScore);
-    }
-  }
 
-  initialize();
+	var compPick = Math.floor(Math.random() * 102) + 19; 
+		console.log("compPick: " + compPick); 
+		$(".randomNumber").html(compPick); 
+
+	var gemOne = Math.floor(Math.random() * 12) + 1; 
+		console.log("Gem 1: " + gemOne); 
+		$("#img1").html("<img src=" + "assets/images/image1.png" + " value=" + gemOne + ">"); 
+
+	var gemTwo = Math.floor(Math.random() * 12) + 1; 
+		console.log("Gem 2: " + gemTwo); 
+		$("#img2").html("<img src=" + "assets/images/image2.png" + " value=" + gemTwo + ">"); 
+
+	var gemThree = Math.floor(Math.random() * 12) + 1; 
+		console.log("Gem 3: " + gemThree); 
+		$("#img3").html("<img src=" + "assets/images/image3.png" + " value=" + gemThree + ">");
+	
+	var gemFour = Math.floor(Math.random() * 12) + 1; 
+		console.log("Gem 4: " + gemFour); 
+		$("#img4").html("<img src=" + "assets/images/image4.png" + " value=" + gemFour + ">");
+		
+	var wins = 0; 
+		console.log("wins: " + wins); 
+
+	var losses = 0; 
+		console.log("losses: " + losses); 
+
+	var score = 0; 
+		console.log("score: " + score); 
+
+	function reset () {
+		compPick = Math.floor(Math.random() * 102) + 19; 
+			console.log("compPick: " + compPick); 
+		$(".randomNumber").html(compPick); 
+
+		score = 0; 
+		$(".scoreDisplay").html(score); 
+
+		gemOne = Math.floor(Math.random() * 12) + 1;  
+			console.log("Gem 1: " + gemOne); 
+		$("#img1").html("<img src=" + "assets/images/image1.png" + " value=" + gemOne + ">"); 
+
+		gemTwo = Math.floor(Math.random() * 12) + 1; 
+			console.log("Gem 2: " + gemTwo); 
+		$("#img2").html("<img src=" + "assets/images/image2.png" + " value=" + gemTwo + ">"); 
+
+		gemThree = Math.floor(Math.random() * 12) + 1; 
+			console.log("Gem 3: " + gemThree); 
+		$("#img3").html("<img src=" + "assets/images/image3.png" + " value=" + gemThree + ">");
+	
+		gemFour = Math.floor(Math.random() * 12) + 1; 
+			console.log("Gem 4: " + gemFour); 
+		$("#img4").html("<img src=" + "assets/images/image4.png" + " value=" + gemFour + ">");
+
+		$("img").on("click", function () {
+			var newScore = score += parseInt($(this).attr("value")); 
+				console.log("New Score: " + newScore); 
+			$(".scoreDisplay").html(newScore); 
+
+			if(newScore === compPick) { 
+				wins++ ; 
+				$(".wins").html("Wins: " + wins); 
+					console.log("Wins: " + wins); 
+					reset(); 
+			
+			} 
+
+			else if(newScore > compPick) {
+				losses++ ; 
+				$(".losses").html("Losses: " + losses); 
+					console.log("Losses: " + losses); 
+					reset(); 
+				
+			}
+
+		}); 
+
+
+
+	}
+
+	$("img").on("click", function () {
+		var newScore = score += parseInt($(this).attr("value")); 
+			console.log("New Score: " + newScore); 
+		$(".scoreDisplay").html(newScore); 
+
+		if(newScore === compPick) { 
+			wins++ ; 
+			$(".wins").html("Wins: " + wins); 
+				console.log("Wins: " + wins); 
+				reset(); 
+		} 
+
+		else if(newScore > compPick) {
+			losses++ ; 
+			$(".losses").html("Losses: " + losses); 
+				console.log("Losses: " + losses); 
+				reset(); 
+		}
+
+	}); 
 
 }); 

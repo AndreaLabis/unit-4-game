@@ -1,112 +1,62 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style.css"> 
+	<title></title>
+</head>
+<body class="wallpaper">
+	
+		<div class="container">
+			<div class="row">
+				<h1 class="header">Crystals Collector!</h1>
+			</div>
+				<div class="row">
+					<div class="col-lg-6 instruction">
+						<p>You will be given a random number at the start of the game.</p>
+						<p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+						<p>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</p>
+						<p>The value of each crystal is hidden from you until you click on it.</p>
+						<p>Each time when the game starts, the game will change the values of each crystal.</p>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-lg-6 randomNumber">Random Generated Number</div>
+					<div class = "col-lg-1"></div>
+					<div class="col-lg-2 totalWL">
+						<div class="row wins">Wins</div>
+						<div class="row losses">Losses</div>
+					</div>
+				</div>
+				<br>
+				<div class="row"> 
+					<div class="col-lg-3 gems">
+						<div id="img1"></div>
+					</div>
+					<div class="col-lg-3">
+						<div id="img2"></div>
+					</div>
+					<div class="col-lg-3">
+						<div id="img3"></div>
+					</div>
+					<div class="col-lg-3">
+						<div id="img4"></div>
+					</div>
+				</div>
+				<br>
+				<div class="row"> 
+					<div class="col-lg-6 totalScore">Your total score is</div>
+				</div>
+				<br>
+				<div class="row"> 
+					<div class="col-lg-6 scoreDisplay">Your Score</div>
+				</div>
+		</div>
+	
 
-  <head>
-    
-    <meta charset="utf-8">
-    <title>Crystals Collector</title>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="assets/javascript/game.js"></script> 
-    
-  </head>
-
-  <body> 
-    
-    <div class="container" id="main-container">
-       <div class="row">
-        <div class="col-sm-4">
-          <div class="card card-default">
-            <div class="card-header"><span id="main"></span>
-               <h2><strong>Andrea's Crystals Collector Game!</strong></h2>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-
-      
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card card-default">
-            <div class="card-body"><span id="instructions"></span>
-              <p>You will be given a random number at the start of the game.</p>
-              <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
-              <p>You win the game by matching  your total score to the random number, you lose the game if your total score goes above the random number.</p>
-              <p>The value of each crystal is hidden from you until you click on it.</p>
-              <p>Each time when the game starts, the game will change the values of each crystal and a new random number will be displayed as well.</p>
-            </div>
-          </div>  
-        </div>
-      </div>
-          <br>
-
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="card card-default">
-                <div class="card-body">
-                   <h2><strong><span id="target-number"></span></strong></h2><br>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-2"> 
-              <div class="card card-default">
-                <div class="card-body">
-                  <p><strong>Wins: </strong></p><span id="wins"></span>
-                  <p><strong>Losses: </strong></p><span id="losses"></span>
-                </div>
-              </div>  
-            </div>
-          </div>
-          <br>
-          
-          <div class="row">
-            <div class="col-3-md" crystals>
-              <img src="assets/images/crystal1.png" alt="green crystal" class="img" id="green">
-             </div>
-             <div class="col-3-md" crystals>
-              <img src="assets/images/crystal2.png" alt="red crystal" class="img" id="red">
-             </div>
-             <div class="col-3-md" crystals>
-              <img src="assets/images/crystal3.png" alt="blue crystal" class="img" id="blue">
-             </div>
-             <div class="col-3-md"crystals>
-              <img src="assets/images/crystal4.png" alt="orange crystal" class="img" id="orange">
-             </div>
-          </div> 
-        
-          
-          <br>
-          <br>
-
-          
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="card card-default">
-                <div class="card-body">
-                  <p><strong>Your total score so far: </strong></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
-
-          <div class="row">
-            <div class="col-sm-4">
-              <div class="card card-default">
-                <div class="card-body">
-                   <h3><strong><span id="user-score"></span></strong></h3><br>
-                </div>
-              </div>
-            </div>
-          </div>  
-    </div>
- 
-
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>
